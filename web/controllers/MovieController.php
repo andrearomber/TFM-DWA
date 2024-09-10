@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../backend/repositories/MovieRepository.php';
+require_once __DIR__ . '/../backend/Utils/DataArrays.php';
 
 class MovieController {
     private $movieRepository;
@@ -13,8 +14,26 @@ class MovieController {
         require __DIR__ . '/../frontend/views/movies/list.php';
     }
 
-    // Otros métodos...
+    public function getMovie($id) {
+        $movie = $this->movieRepository->getMovieById($id);
+        require __DIR__ . '/../frontend/views/movies/list.php';
+    }
+
+    public function createMovie($data) {
+        $movie_id = $this->movieRepository->createMovie($data);
+        require __DIR__ . '/../frontend/views/movies/list.php';
+    }
+
+    public function updateMovie($id, $data) {
+        $result = $this->movieRepository->updateMovie($id, $data);
+        require __DIR__ . '/../frontend/views/movies/list.php';
+    }
+
+   public function deleteMovie($id) {
+    $result = $this->movieRepository->deleteMovie($id);
+    require __DIR__ . '/../frontend/views/movies/list.php';
+   }
 }
 
 $movieController = new MovieController();
-$movieController->listMovies();
+// $movieController->deleteMovie(16);
