@@ -1,5 +1,5 @@
 <?php
-class MovieModel {
+class CategoryModel {
     private $name;
 
     public function __construct($name = '') {

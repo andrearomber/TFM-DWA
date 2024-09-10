@@ -10,9 +10,6 @@ class ExceptionController{
                 'message' => $message,
                 'data' => $data
             );
-            // echo "<pre>";
-            // print_r($messages_container);
-            // echo "</pre>";
         }
 
         return array(
